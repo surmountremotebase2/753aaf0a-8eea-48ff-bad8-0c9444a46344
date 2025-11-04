@@ -9,7 +9,7 @@ class NVDAEMAStrategy(Strategy):
 
     @property
     def interval(self):
-        return "1day"  # Using daily data for EMA and ADX calculation
+        return "1hour"  # Using daily data for EMA and ADX calculation
 
     @property
     def assets(self):
