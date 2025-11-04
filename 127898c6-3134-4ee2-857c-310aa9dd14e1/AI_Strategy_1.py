@@ -8,7 +8,7 @@ class TradingStrategy(Strategy):
 
     @property
     def interval(self):
-        return "1day"  # Interval can be adjusted based on trading preferences
+        return "1hour"  # Interval can be adjusted based on trading preferences
 
     @property
     def data(self):
