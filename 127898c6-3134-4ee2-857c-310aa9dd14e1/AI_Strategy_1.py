@@ -4,7 +4,7 @@ from surmount.technical_indicators import EMA, ADX
 class TradingStrategy(Strategy):
     def __init__(self):
         # Initialize strategy properties
-        self.assets = ["SPY"]  # Example ticker, replace with assets of your choice
+        self.assets = ["NVDA"]  # Example ticker, replace with assets of your choice
 
     @property
     def interval(self):
@@ -20,13 +20,13 @@ class TradingStrategy(Strategy):
         
         for ticker in self.assets:
             # Ensure that there is enough historical data to compute indicators
-            if len(data["ohlcv"]) > 13:
+            if len(data["ohlc"]) > 13:
                 # Calculate the 13-day EMA and ADX for the ticker
-                ema13 = EMA(ticker, data["ohlcv"], 13)
-                adx = ADX(ticker, data["ohlcv"], 14)  # 14-day period is standard for ADX
-                
+                ema13 = EMA(ticker, data["ohlc"], 13)
+                adx = ADX(ticker, data["ohlc"], 14)  # 14-day period is standard for ADX
+            
                 # Get the last closing price and the last ADX value
-                last_close = data["ohlcv"][-1][ticker]["close"]
+                last_close = data["ohlc"][-1][ticker]["close"]
                 last_ema13 = ema13[-1]
                 last_adx = adx[-1]
 
